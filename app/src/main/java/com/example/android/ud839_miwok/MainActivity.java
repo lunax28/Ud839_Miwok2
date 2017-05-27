@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-import static com.example.android.ud839_miwok.R.layout.activity_numbers;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -17,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         TextView numbers = (TextView) findViewById(R.id.numbers);
-        numbers.setOnClickListener(new OnClickListener(){
+        numbers.setOnClickListener(new OnClickListener() {
 
             // The code in this method will be executed when the numbers category is clicked on.
             @Override
@@ -31,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         TextView family = (TextView) findViewById(R.id.family);
-        family.setOnClickListener(new OnClickListener(){
+        family.setOnClickListener(new OnClickListener() {
 
             // The code in this method will be executed when the numbers category is clicked on.
             @Override
@@ -45,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         TextView colors = (TextView) findViewById(R.id.colors);
-        colors.setOnClickListener(new OnClickListener(){
+        colors.setOnClickListener(new OnClickListener() {
 
             // The code in this method will be executed when the numbers category is clicked on.
             @Override
@@ -59,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         TextView phrases = (TextView) findViewById(R.id.phrases);
-        phrases.setOnClickListener(new OnClickListener(){
+        phrases.setOnClickListener(new OnClickListener() {
 
             // The code in this method will be executed when the numbers category is clicked on.
             @Override
@@ -72,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
 
 }
