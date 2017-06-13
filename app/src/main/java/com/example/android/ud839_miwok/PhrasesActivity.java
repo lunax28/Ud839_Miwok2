@@ -55,14 +55,49 @@ public class PhrasesActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 // Get the {@link Word} object at the given position the user clicked on
                 Word word = words.get(position);
-
+                releaseMediaPlayer();
                 // Create and setup the {@link MediaPlayer} for the audio resource associated
                 // with the current word
                 mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, word.getmSoundResourceId());
 
                 // Start the audio file
                 mMediaPlayer.start();
+
+                mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+
+
+                        releaseMediaPlayer();
+
+                    }
+
+                });
             }
         });
+    }
+
+    /**
+     * Clean up the media player by releasing its resources.
+     */
+    private void releaseMediaPlayer() {
+        // If the media player is not null, then it may be currently playing a sound.
+        if (mMediaPlayer != null) {
+            // Regardless of the current state of the media player, release its resources
+            // because we no longer need it.
+            mMediaPlayer.release();
+
+            // Set the media player back to null. For our code, we've decided that
+            // setting the media player to null is an easy way to tell that the media player
+            // is not configured to play an audio file at the moment.
+            mMediaPlayer = null;
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
     }
 }
